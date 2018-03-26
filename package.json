@@ -1,0 +1,20 @@
+{
+  "name": "voxfm_server",
+  "version": "1.0.0",
+  "description": "server for the voxFM application.",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start-dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@feathersjs/errors": "^3.3.0",
+    "@feathersjs/express": "^1.2.0",
+    "@feathersjs/feathers": "^3.1.3",
+    "@feathersjs/socketio": "^3.2.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.2",
+    "htmlparser": "^1.7.7",
+    "morgan": "^1.9.0"
+  }
+}
