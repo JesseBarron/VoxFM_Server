@@ -6,6 +6,11 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const app = express(feathers())
 const { FacebookFeed, VoxStreamInfo } = require('./services')
+module.exports = {
+    app
+}
+const { poller } = require('./utility')
+const PORT = process.env.PORT || 8080
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
@@ -55,12 +60,23 @@ class MyMessages {
 
 app.use(express.errorHandler())
 
-const server = app.listen(8080)
+const server = app.listen(PORT)
 
 app.use('messages', new MyMessages)
 app.use('feed', new FacebookFeed)
 app.use('streamInfo', new VoxStreamInfo)
 
+
+app.on('connection', connection => app.channel('everybody').join(connection))
+app.publish(() => app.channel('everybody'))
 server.on('listening', () => console.log('Server is listening in port 8080'))
 app.service('messages').on('created', message => console.log(`New Message ${message.id}: ${message.text}`))
-app.service('streamInfo').on('updated', currentSong => console.log(`Song Changed to: ${currentSong}`))
+app.service('streamInfo').on('updated', currentSong => {
+    console.log(`Song Changed to: ${currentSong}`)
+    return currentSong
+})
+
+
+
+poller()
+
