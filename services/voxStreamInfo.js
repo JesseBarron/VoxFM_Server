@@ -33,7 +33,7 @@ class VoxStreamInfo {
             this.newSong = currentSong 
             return this.newSong
         } catch(err) {
-            console.log(err)
+            console.log("No Current Song Title")
             const genre = "VoxFM"
             const currentSong = "VoxFM"
             return this.newSong = currentSong 

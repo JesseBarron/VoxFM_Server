@@ -1,4 +1,4 @@
-require('./secrets')
+require('./secrets/secrets')
 const feathers = require('@feathersjs/feathers')
 const express = require('@feathersjs/express')
 const socketio = require('@feathersjs/socketio')
