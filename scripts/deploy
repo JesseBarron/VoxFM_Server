@@ -9,7 +9,7 @@ function cleanup_exit() {
     git branch -D deploy
 }
 
-trap cleanup_exit
+trap "{cleanup_exit \${LINERO} ; }" ERR
 
 git checkout -b deploy
 
