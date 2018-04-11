@@ -1,1 +1,0 @@
-process.env.VOX_FB_FEED_URL = "https://graph.facebook.com/v2.8/somosvoxfm/feed?fields=message,link,source,attachments%7Btype,url,media%7D&limin=20&access_token=EAAB39MDRZA3kBAC8WHppI45UnBYqwrF2K9FXYOVZBGezx6LvTOetjPfWH5JG5ADlkvuu0XKLnN1bJt9PPFQ6t5y9ZCXptSmZAPL3YTwgVPICpnSxWKiF3fEYZC8qCtC0MVZBiUZAkflwUjLZCiCZBQGH16GqEodY6PW7Pv5VrDmZAZCJAZDZD"
