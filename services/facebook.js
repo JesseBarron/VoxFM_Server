@@ -8,20 +8,10 @@ class FacebookFeed {
     constructor() {
 
     }
-    async find() {
+    async find(params) {
         try {
-            const data = await axios.get(process.env.VOX_FB_FEED_URL)
-            const feed = data.data.data.filter(filterFeed)
-            const nextPage = data.data.paging.next
-            return { feed, nextPage }
-        } catch(err) {
-            console.log(err)
-        }
-    }
-    
-    async fetchNextPage(url) {
-        try{
-            const data = await axios.get(url)
+            const url = params.query.url
+            const data = await axios.get(url || process.env.VOX_FB_FEED_URL)
             const feed = data.data.data.filter(filterFeed)
             const nextPage = data.data.paging.next
             return { feed, nextPage }

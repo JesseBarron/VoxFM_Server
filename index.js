@@ -35,13 +35,5 @@ app.service('streamInfo').on('updated', currentSong => {
     return currentSong
 })
 
-// app.service('feed').find()
-//     .then(res => {
-//        return app.service('feed').fetchNextPage(res.nextPage)
-//     })
-//     .then(moreFeed => {
-//         console.log(moreFeed.feed)
-//     })
-
 poller()
 
