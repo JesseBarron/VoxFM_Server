@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "deploy": "scripts/deploy",
-    "start-dev": "nodemon index.js",
+    "start-dev": "DEV=true nodemon index.js",
     "test": "TEST=true mocha ./*/*/*.test.js",
     "test-watch": "yarn test --watch"
   },
