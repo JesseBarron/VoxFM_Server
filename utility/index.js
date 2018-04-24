@@ -1,4 +1,4 @@
-const { poller } = require('./streamInfoLongPoller')
+const poller = require('./streamInfoLongPoller')
 
 
 module.exports = {

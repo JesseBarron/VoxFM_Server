@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node index.js",
     "deploy": "scripts/deploy",
-    "start-dev": "nodemon index.js"
+    "start-dev": "nodemon index.js",
+    "test": "TEST=true mocha ./*/*/*.test.js",
+    "test-watch": "yarn test --watch"
   },
   "dependencies": {
     "@feathersjs/errors": "^3.3.0",
@@ -19,6 +21,12 @@
     "body-parser": "^1.18.2",
     "firebase-admin": "^5.11.0",
     "htmlparser": "^1.7.7",
-    "morgan": "^1.9.0"
+    "lodash": "^4.17.5",
+    "morgan": "^1.9.0",
+    "sinon": "^4.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5"
   }
 }

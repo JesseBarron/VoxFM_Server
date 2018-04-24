@@ -20,7 +20,7 @@ class VoxStreamInfo {
     }
 
     async update(id, { currentSong }, params) {
-        this.currentSong = currentSong
+        this.newSong = currentSong
         return this.newSong
     }
 

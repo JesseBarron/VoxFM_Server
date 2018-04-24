@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const filterFeed = (obj) => {
-    if(obj.source && obj.attachments.data[0].media) return obj
+    if (obj.source && obj.attachments.data[0].media) return obj
 }
 
 class FacebookFeed {
@@ -14,8 +14,11 @@ class FacebookFeed {
             const data = await axios.get(url || process.env.VOX_FB_FEED_URL)
             const feed = data.data.data.filter(filterFeed)
             const nextPage = data.data.paging.next
-            return { feed, nextPage }
-        } catch(err) {
+            return {
+                feed,
+                nextPage
+            }
+        } catch (err) {
             console.log(err)
         }
     }

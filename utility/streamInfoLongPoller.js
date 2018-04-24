@@ -1,4 +1,4 @@
-const { app } = require('../index')
+const app  = require('../index')
 
 
 const poller = () => {
@@ -15,9 +15,7 @@ const poller = () => {
             console.log(err)
         }
     }
-    setInterval(() => startPoll(), 10000)
+    setInterval(() => startPoll(), 15000)
 }
 
-module.exports = {
-    poller
-}
+module.exports = poller
