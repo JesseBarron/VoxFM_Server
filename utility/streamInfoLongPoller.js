@@ -6,10 +6,10 @@ const poller = () => {
 
     const startPoll = async () => {
         try{
-            let currentSong = await app.service('streamInfo').find()
+            let { currentSong, artwork } = await app.service('streamInfo').find()        
             if(currentSong !== prevInfo) {
                 prevInfo = currentSong
-                await app.service('streamInfo').update(null, { currentSong })
+                await app.service('streamInfo').update(null, { currentSong, artwork })
             }
         } catch(err) {
             console.log(err)

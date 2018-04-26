@@ -19,11 +19,11 @@
     "@google-cloud/storage": "^1.6.0",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
-    "disconnect": "^1.2.1",
     "firebase-admin": "^5.11.0",
     "htmlparser": "^1.7.7",
     "lodash": "^4.17.5",
     "morgan": "^1.9.0",
+    "node-spotify-api": "^1.0.7",
     "sinon": "^4.5.0"
   },
   "devDependencies": {

@@ -480,6 +480,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+bluebird@^3.5.0:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
+
 body-parser@1.18.2, body-parser@^1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.2.tgz#87678a19d84b47d859b83199bd59bce222b10454"
@@ -868,12 +872,6 @@ dir-glob@^2.0.0:
   dependencies:
     arrify "^1.0.1"
     path-type "^3.0.0"
-
-disconnect@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/disconnect/-/disconnect-1.2.1.tgz#fe75538f64d38e821a46b01bfdee5e9c23c4bace"
-  dependencies:
-    oauth-1.0a "2.x.x"
 
 dot-prop@^4.1.0, dot-prop@^4.2.0:
   version "4.2.0"
@@ -1867,6 +1865,10 @@ lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
 
+lodash@^4.13.1:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+
 lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
@@ -2089,6 +2091,13 @@ node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
+node-spotify-api@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/node-spotify-api/-/node-spotify-api-1.0.7.tgz#09dd3088428fbf1d0ca4cdf6bbb2d1236bdaa934"
+  dependencies:
+    request "^2.81.0"
+    request-promise "^4.2.1"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -2108,10 +2117,6 @@ npmlog@^4.0.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
-
-oauth-1.0a@2.x.x:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/oauth-1.0a/-/oauth-1.0a-2.2.4.tgz#5b0caf0de64516bd7b0f480377adba254bf24ac2"
 
 oauth-sign@~0.8.1, oauth-sign@~0.8.2:
   version "0.8.2"
@@ -2473,6 +2478,21 @@ repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
 
+request-promise-core@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/request-promise-core/-/request-promise-core-1.1.1.tgz#3eee00b2c5aa83239cfb04c5700da36f81cd08b6"
+  dependencies:
+    lodash "^4.13.1"
+
+request-promise@^4.2.1:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-4.2.2.tgz#d1ea46d654a6ee4f8ee6a4fea1018c22911904b4"
+  dependencies:
+    bluebird "^3.5.0"
+    request-promise-core "1.1.1"
+    stealthy-require "^1.1.0"
+    tough-cookie ">=2.3.3"
+
 request@2.81.0:
   version "2.81.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
@@ -2791,6 +2811,10 @@ statuses@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
 
+stealthy-require@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
+
 stream-events@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/stream-events/-/stream-events-1.0.2.tgz#abf39f66c0890a4eb795bc8d5e859b2615b590b2"
@@ -2919,7 +2943,7 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-tough-cookie@~2.3.0, tough-cookie@~2.3.3:
+tough-cookie@>=2.3.3, tough-cookie@~2.3.0, tough-cookie@~2.3.3:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.4.tgz#ec60cee38ac675063ffc97a5c18970578ee83655"
   dependencies:
