@@ -8,7 +8,7 @@
     "start": "node index.js",
     "deploy": "scripts/deploy",
     "start-dev": "DEV=true nodemon index.js",
-    "test": "TEST=true mocha ./*/*/*.test.js",
+    "test": "TEST=TRUE yarn start && DEV=true  mocha ./*/*/*.test.js",
     "test-watch": "yarn test --watch"
   },
   "dependencies": {

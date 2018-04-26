@@ -1,4 +1,5 @@
 if(process.env.DEV) require('./secrets/secrets')
+console.log(process.env.DEV, 'is this true?')
 const feathers = require('@feathersjs/feathers')
 const express = require('@feathersjs/express')
 const socketio = require('@feathersjs/socketio')

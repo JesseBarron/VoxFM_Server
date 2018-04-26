@@ -2,7 +2,7 @@ const assert = require('assert')
 const expect = require('chai').expect
 const app = require('../../index')
 
-describe(`Facebook feed Service`, async () => {
+xdescribe(`Facebook feed Service`, async () => {
     let service,
     result
 
