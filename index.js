@@ -1,5 +1,4 @@
 if(process.env.DEV) require('./secrets/secrets')
-console.log(process.env.DEV, 'is this true?')
 const feathers = require('@feathersjs/feathers')
 const express = require('@feathersjs/express')
 const socketio = require('@feathersjs/socketio')
@@ -33,9 +32,9 @@ app.use('streamInfo', new VoxStreamInfo)
 
 app.on('connection', connection => app.channel('everybody').join(connection))
 app.publish(() => app.channel('everybody'))
-app.service('streamInfo').on('updated', _.debounce(currentSong => {
-    console.log(`Song Changed to: ${currentSong}`)
-    return currentSong
+app.service('streamInfo').on('updated', _.debounce((streamInfo) => {
+    console.log(`Song Changed to: ${streamInfo.currentSong}`)
+    return streamInfo
 }, 2000))    
 
 
