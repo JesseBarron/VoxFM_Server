@@ -8,7 +8,7 @@
     "start": "node index.js",
     "deploy": "scripts/deploy",
     "start-dev": "DEV=true nodemon index.js",
-    "test": "TEST=TRUE yarn start && DEV=true  mocha ./*/*/*.test.js",
+    "test": "TEST=true yarn start && DEV=true  mocha --timeout 20000 ./*/*/*.test.js",
     "test-watch": "yarn test --watch"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "lodash": "^4.17.5",
     "morgan": "^1.9.0",
     "node-spotify-api": "^1.0.7",
+    "nodemailer": "^4.6.4",
     "sinon": "^4.5.0"
   },
   "devDependencies": {
