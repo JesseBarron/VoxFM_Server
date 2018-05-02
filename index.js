@@ -1,4 +1,4 @@
-if(process.env.DEV) require('./secrets/secrets')
+if(process.env.DEV || process.env.TEST) require('./secrets/secrets')
 const feathers = require('@feathersjs/feathers')
 const express = require('@feathersjs/express')
 const socketio = require('@feathersjs/socketio')
@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const _ = require('lodash')
 const app = express(feathers())
-const { FacebookFeed, VoxStreamInfo } = require('./services')
+const { FacebookFeed, VoxStreamInfo, Email } = require('./services')
 module.exports = app
 const { poller } = require('./utility')
 const PORT = process.env.PORT || 8080
@@ -28,7 +28,7 @@ if(!process.env.TEST){
 
 app.use('feed', new FacebookFeed)
 app.use('streamInfo', new VoxStreamInfo)
-
+app.use('email', new Email)
 
 app.on('connection', connection => app.channel('everybody').join(connection))
 app.publish(() => app.channel('everybody'))
