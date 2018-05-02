@@ -20,7 +20,7 @@ const parser = new htmlparser.Parser(handler)
 class VoxStreamInfo {
     constructor() {
        this.streamInfo = {
-           currentSong: 'VoxFM',
+           currentSong: 'VoxFM - Con Sello de Hecho en Mexico',
            artwork: null
         }
     }
@@ -44,8 +44,9 @@ class VoxStreamInfo {
             this.streamInfo = {currentSong, artwork} 
             return this.streamInfo 
         } catch(err) {
+            console.log(err)
             console.log("No Current Song Title")
-            const currentSong = "VoxFM"
+            const currentSong = "VoxFM - Con Sello de Hecho en Mexico"
             return {
                 currentSong,
                 artwork: null

@@ -2,27 +2,33 @@ const app  = require('../index')
 
 
 const poller = () => {
-    let prevInfo = {
-        currentSong: 'VoxFM',
+    let history = [];
+
+    let currentInfo = {
+        currentSong: 'VoxFM - Con Sello de Hecho en Mexico',
         artwork: null
     }
     let timeOut = null
     const startPoll = async () => {
         try{
             let { currentSong, artwork } = await app.service('streamInfo').find()        
-            if(currentSong !== prevInfo.currentSong) {
-                prevInfo = {currentSong, artwork}
+            if(currentSong !== currentInfo.currentSong && !history.includes(currentSong)) {
+               if(currentSong != 'VoxFM') history.push(currentSong)
+                currentInfo = {currentSong, artwork}
+                if(history.length > 10) {
+                    history.shift()
+                }
                 await app.service('streamInfo').update(null, {currentSong, artwork})
                 if(timeOut !== null) {
                     clearTimeout(timeOut)
                 }
-                timeOut = setTimeout(async () => {
+                timeOut = setTimeout( () => {
                     const defaultInfo = {
-                        currentSong: 'VoxFM',
+                        currentSong: 'VoxFM - Con Sello de Hecho en Mexico',
                         artwork: null
                     }
-                    prevInfo = defaultInfo
-                    await app.service('streamInfo').update(null, defaultInfo)
+                    currentInfo = defaultInfo
+                    app.service('streamInfo').update(null, defaultInfo)
                 }, 330000)
             }
         } catch(err) {
@@ -33,5 +39,3 @@ const poller = () => {
 }
 
 module.exports = poller
-
-//390000
