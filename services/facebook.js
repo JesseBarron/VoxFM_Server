@@ -11,7 +11,6 @@ class FacebookFeed {
     async find(params) {
         try {
             const url = params.query.url
-            console.log(process.env.VOX_FB_FEED_URL)
             const data = await axios.get(url || process.env.VOX_FB_FEED_URL)
             const feed = data.data.data.filter(filterFeed)
             const nextPage = data.data.paging.next

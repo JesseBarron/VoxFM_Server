@@ -17,11 +17,28 @@ const transporter = nodemailer.createTransport(smtpConfig)
 
 class Email {
     constructor() {
-
     }
-    async create(message, params) {
-        console.log(message, 'this is the message to be sent')
-        return "Hello this is working"
+
+    async create(messageDetails, params) {
+        try{
+            const { message, firstName, lastName, subject, email } = messageDetails
+            const emailDraft = {
+                from: 'info@somosvoxfm.com',
+                to: 'info@somosvoxfm.com',
+                subject: `${firstName} ${lastName} ${email} - ${subject}`,
+                text: message,
+                html: `
+                <div>
+                    <h4>${firstName} ${lastName} ${email} - ${subject}</h4>
+                    <p>${message}</p>
+                </div>
+                `
+            }
+            const result = await transporter.sendMail(emailDraft)
+            return result
+        } catch(e) {
+            console.log(e)
+        }
     }
 }
 
@@ -29,27 +46,3 @@ module.exports = {
     transporter,
     Email
 }
-// console.log('here')
-// transporter.verify()
-//     .then(res => {
-//         console.log("success")
-//         console.log(res)
-//     })
-//     .catch(e => {
-//         console.log(e)
-//     })
-// const message = {
-//     from: 'info@somosvoxfm.com',
-//     to: 'info@somosvoxfm.com',
-//     subject: 'Application'
-//     text: "This is some plain text",
-//     html: '<h1>Hopefully this worked!!</h1>'
-// }
-// transporter.sendMail(message)
-//     .then(res => {
-//         console.log('sent')
-//         console.log(res)
-//     })
-//     .catch(e => {
-//         console.log(e)
-//     })
