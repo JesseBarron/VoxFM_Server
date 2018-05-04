@@ -42,7 +42,6 @@ class Email {
             }
             const result = await transporter.sendMail(emailDraft)
             return result
-            // return emailDraft
         } catch(e) {
             console.log(e)
         }

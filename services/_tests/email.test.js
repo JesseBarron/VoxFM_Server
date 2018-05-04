@@ -4,7 +4,7 @@ const expect = require('chai').expect
 const { transporter } = require('../email')
 app = require('../../index')
 
-describe("Email Service", () => {
+xdescribe("Email Service", () => {
     let service, result
 
     before(async () => {

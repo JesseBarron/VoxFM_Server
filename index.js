@@ -6,7 +6,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const _ = require('lodash')
 const app = express(feathers())
-const { FacebookFeed, VoxStreamInfo, Email } = require('./services')
+const { FacebookFeed, VoxStreamInfo, Email, StreamURL } = require('./services')
 module.exports = app
 const { poller } = require('./utility')
 const PORT = process.env.PORT || 8080
@@ -29,6 +29,8 @@ if(!process.env.TEST){
 app.use('feed', new FacebookFeed)
 app.use('streamInfo', new VoxStreamInfo)
 app.use('email', new Email)
+app.use('streamURL', new StreamURL)
+
 
 app.on('connection', connection => app.channel('everybody').join(connection))
 app.publish(() => app.channel('everybody'))

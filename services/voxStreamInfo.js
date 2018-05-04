@@ -36,7 +36,7 @@ class VoxStreamInfo {
 
     async find() {
         try{
-            const result = await axios.get('http://www.indahosting.net:8128/index.html?sid=1')
+            const result = await axios.get(process.env.STREAM_INFO_URL)
             const parsedHTML = parser.parseComplete(result.data)
             const genre = handler.dom[1].children[1].children[3].children[5].children[1].children[0].children[0].data
             const currentSong = handler.dom[1].children[1].children[3].children[7].children[1].children[0].children[0].children[0].data
