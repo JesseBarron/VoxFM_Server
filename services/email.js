@@ -1,5 +1,11 @@
 const nodemailer = require('nodemailer')
 
+const emailContacts = {
+    General: 'info@somosvoxfm.com',
+    Programación: 'radio@somosvoxfm.com'    ,
+    Ventas: 'jpatino@somosvoxfm.com',
+}
+
 const smtpConfig = {
     host: process.env.EMAIL_HOST,
     port: 465,
@@ -21,10 +27,10 @@ class Email {
 
     async create(messageDetails, params) {
         try{
-            const { message, firstName, lastName, subject, email } = messageDetails
+            const { message, firstName, lastName, subject, email, topic } = messageDetails
             const emailDraft = {
                 from: 'info@somosvoxfm.com',
-                to: 'info@somosvoxfm.com',
+                to: emailContacts[topic],
                 subject: `${firstName} ${lastName} ${email} - ${subject}`,
                 text: message,
                 html: `
@@ -36,6 +42,7 @@ class Email {
             }
             const result = await transporter.sendMail(emailDraft)
             return result
+            // return emailDraft
         } catch(e) {
             console.log(e)
         }
