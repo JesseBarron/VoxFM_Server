@@ -1,9 +1,9 @@
 const nodemailer = require('nodemailer')
 
 const emailContacts = {
-    General: 'info@somosvoxfm.com',
-    Programación: 'radio@somosvoxfm.com'    ,
-    Ventas: 'jpatino@somosvoxfm.com',
+    General: process.env.EMAIL_USER,
+    Programación: process.env.EMAIL_PROG,
+    Ventas: process.env.EMAIL_VENT,
 }
 
 const smtpConfig = {
