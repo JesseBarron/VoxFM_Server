@@ -1,4 +1,5 @@
 if(process.env.DEV || process.env.TEST) require('./secrets/secrets')
+const path = require('path')
 const feathers = require('@feathersjs/feathers')
 const express = require('@feathersjs/express')
 const socketio = require('@feathersjs/socketio')
@@ -25,6 +26,10 @@ if(!process.env.TEST){
     server.on('listening', () => console.log(`Server is listening in port ${PORT}`))
     poller()
 }
+
+app.use('/privacy', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'public/privacypolicy.htm'))
+})
 
 app.use('feed', new FacebookFeed)
 app.use('streamInfo', new VoxStreamInfo)
